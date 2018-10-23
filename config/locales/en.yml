@@ -247,6 +247,11 @@ en:
         title: "Name"
         comment: "Description"
 
+  ualberta:
+    era_av_full: "University of Alberta ERA Audio and Video"
+
+  powered_by_avalon: "Powered by Avalon"
+
   required_field_html:
     <strong><span class="tooltip-label-required">*</span> indicates required field</strong>
 
