@@ -28,6 +28,13 @@ div.terms-of-use-custom {
   color: #fff;
 }
 
+h1,
+h2,
+h3,
+h4 {
+  font-family: 'Playfair Display', serif;
+}
+
 .footer {
   width: 100%;
   text-align: center;
@@ -64,4 +71,84 @@ div.terms-of-use-custom {
 .footer .copyright {
   padding: 40px 20px 0 20px;
   font-size: 90%;
+}
+
+#masthead {
+  min-height: 0;
+  padding: 0;
+}
+
+#masthead {
+  display: none;
+}
+#masthead .mast-branding {
+  color: #222;
+  margin: 0px 0px 0px 0px;
+  padding: 0px;
+  text-align: center;
+}
+#masthead .mast-branding h1 {
+  font-size: 98px;
+  font-weight: bold;
+  line-height: 85px;
+  padding: 0px 0px 0px 0px !important;
+  margin: -8px 0px 0px 0px !important;
+}
+#masthead .mast-branding h2 {
+  display: block;
+  font-size: 14px;
+  margin: 0px 0px 0px 0px;
+  padding: 0px;
+}
+#masthead .mast-branding h3 {
+  display: block;
+  font-size: 25px;
+  margin: 0px 0px 0px 0px;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: semi-bold;
+}
+#masthead .mast-branding h3 .glyphicon-triangle-right {
+  font-size: 16px;
+}
+#masthead .mast-branding h1 > a {
+  color: #222;
+  background-color: transparent;
+  letter-spacing: -5px;
+}
+
+.mast-branding h1 a:hover,
+.mast-branding h1 a:active,
+.mast-branding h1 a:visited,
+.mast-branding h1 a:focus {
+  text-decoration: none;
+}
+.mast-branding h1 a:hover {
+  color: #999;
+}
+
+.navbar-header .mast-branding {
+  margin: 1px 0px 0px 1px;
+  text-align: left;
+}
+.navbar-header .mast-branding h1 {
+  font-size: 20px;
+  margin: 0px 0px 0px 0px;
+  padding: 0;
+}
+.navbar-header .mast-branding h3 {
+  font-size: 12px;
+  margin: 0px 0px 0px 0px;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: normal;
+}
+
+/* BEGIN STYLES FOR LARGER DEVICES */
+/* Small devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+  .navbar-header .mast-branding {
+    display: none;
+  }
+  #masthead {
+    display: block;
+  }
 }

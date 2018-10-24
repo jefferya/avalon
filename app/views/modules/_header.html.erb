@@ -13,26 +13,30 @@ Unless required by applicable law or agreed to in writing, software distributed
   specific language governing permissions and limitations under the License.
 ---  END LICENSE_HEADER BLOCK  ---
 %>
-  <div class="custom-header">
-    <div class="row">
-      <div class="row-fluid whitespace-half">
-      <header>
-        <div class="col-sm-2 logo">
-        <%= link_to root_path do %>
-          <%= image_tag "Home.png", alt: "Avalon Media System - #{t(:release_label)} #{Avalon::VERSION}" %>
-        <% end %>
-        </div>
-        
-        <!-- <div class="col-md-6">
-          <h1>Avalon Media System</h1>
-          <p class="lead"><%=release_text%></p>
-        </div>    -->
 
-        <%# By default shift log in / log out to the header %>
-        <div class="pull-right log-in-out">
-          <%= render 'modules/user_management' %>
-        </div>
-      </header>
+ <div class="custom-header" id="masthead">
+
+  <div class="row">
+    <div class="row-fluid whitespace-half">
+    <header>
+
+      <div class="col-sm-4 logo">
+        <%= ualib_logo_link %>
+          <%= link_to "ERA Home", "https://era.library.ualberta.ca", :class => "era-link" %>
       </div>
+
+      <div class="mast-branding col-sm-4">
+        <h2>education &amp; research archive</h2>
+        <h1>ERA</h1>
+        <h3><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span>AUDIO <span class="plus-head">&plus;</span> VIDEO</h3>
+      </div>
+
+      <%# By default shift log in / log out to the header %>
+      <div class="pull-right log-in-out">
+        <%= render partial: "modules/user_util_dropdowns"%>
+      </div>
+    </header>
     </div>
   </div>
+
+</div>
