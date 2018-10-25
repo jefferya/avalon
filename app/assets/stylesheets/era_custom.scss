@@ -76,7 +76,6 @@ h4 {
 #masthead {
   min-height: 0;
   padding: 0;
-  display: none;
   background-color: #ebe8e5;
 }
 
@@ -195,10 +194,4 @@ h4 {
 /* BEGIN STYLES FOR LARGER DEVICES */
 /* Small devices (tablets, 768px and up) */
 @media (min-width: 768px) {
-  .navbar-header .mast-branding {
-    display: none;
-  }
-  #masthead {
-    display: block;
-  }
 }
