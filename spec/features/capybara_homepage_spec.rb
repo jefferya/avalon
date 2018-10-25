@@ -52,13 +52,15 @@ end
 describe 'checks navigation to external links' do
   it 'checks navigation to Avalon Website' do
     visit '/'
-    click_link('Avalon Media System Project Website')
+    # U of A custom theme
+    click_link('Powered by Avalon')
     expect(page.status_code).to eq(200)
     expect(page.current_url).to eq('http://www.avalonmediasystem.org/')
   end
   it 'checks navigation to Contact us page' do
     visit '/'
-    #UofA custom contact page
+    click_link('Contact Us')
+    # U of A custom contact page
     expect(page.current_url).to eq('http://www.example.com/contact')
     page.should have_content('ERA HelpDesk')
     page.should have_link('erahelp@ualberta.ca',
@@ -66,18 +68,30 @@ describe 'checks navigation to external links' do
     page.should have_content('780.492.4359')
   end
   it 'checks navigation to Deposit page' do
+    visit '/'
+    # U of A custom page
+    click_link('How to Deposit')
     expect(page.current_url).to eq('http://www.example.com/deposit')
     page.should have_content('How to deposit')
   end
   it 'checks navigation to About page' do
-    expect(page.current_url).to eq('http://www.example.com/about')
+    visit '/'
+    # U of A custom page
+    click_link('About ERA A&plus;V')
+    expect(page.current_url).to eq('http://www.example.com/about_eraav')
     page.should have_content('Key features include')
   end
   it 'checks navigation to Policies page' do
+    visit '/'
+    # U of A custom page
+    click_link('Policies')
     expect(page.current_url).to eq('http://www.example.com/policies')
     page.should have_content('Content Policy')
   end
   it 'checks navigation to Technology page' do
+    visit '/'
+    # U of A custom page
+    click_link('Technology and Partnerships')
     expect(page.current_url).to eq('http://www.example.com/technology')
     page.should have_content('Technology and Partnerships')
   end
