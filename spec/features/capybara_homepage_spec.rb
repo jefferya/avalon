@@ -18,14 +18,17 @@ describe 'homepage' do
   after { Warden.test_reset! }
   it 'validates presence of header and footer on homepage' do
     visit 'http://0.0.0.0:3000'
+    # The theme at U of A doesn't match the upstream theme
     page.should have_content('Sample Content')
     page.should have_link('Browse')
     page.should have_content('Featured Collection')
     page.should have_content('Featured Video')
     page.should have_content('Featured Audio')
-    page.should have_link('Avalon Media System Project Website')
+    # The theme at U of A doesn't match the upstream theme
+    page.should have_link('Powered by Avalon')
     page.should have_link('Contact Us')
-    page.should have_content('Avalon Media System Release')
+    # U of A puts the following in an HTML comment, so we check "source"
+    page.source.should include('Avalon Media System Release')
     page.should have_content('Search')
   end
   it 'validates absence of features when not logged in' do
@@ -55,15 +58,28 @@ describe 'checks navigation to external links' do
   end
   it 'checks navigation to Contact us page' do
     visit '/'
-    click_link('Contact Us')
-    expect(page.current_url).to eq('http://www.example.com/comments')
-    page.should have_content('Contact us')
-    page.should have_content('Name')
-    page.should have_content('Email address')
-    page.should have_content('Confirm email address')
-    page.should have_content('Subject')
-    page.should have_content('Comment')
-    page.should have_button('Submit comments')
+    #UofA custom contact page
+    expect(page.current_url).to eq('http://www.example.com/contact')
+    page.should have_content('ERA HelpDesk')
+    page.should have_link('erahelp@ualberta.ca',
+                          href: 'mailto:erahelp@ualberta.ca')
+    page.should have_content('780.492.4359')
+  end
+  it 'checks navigation to Deposit page' do
+    expect(page.current_url).to eq('http://www.example.com/deposit')
+    page.should have_content('How to deposit')
+  end
+  it 'checks navigation to About page' do
+    expect(page.current_url).to eq('http://www.example.com/about')
+    page.should have_content('Key features include')
+  end
+  it 'checks navigation to Policies page' do
+    expect(page.current_url).to eq('http://www.example.com/policies')
+    page.should have_content('Content Policy')
+  end
+  it 'checks navigation to Technology page' do
+    expect(page.current_url).to eq('http://www.example.com/technology')
+    page.should have_content('Technology and Partnerships')
   end
   it 'verifies presence of features after login' do
     user = FactoryGirl.create(:administrator)
