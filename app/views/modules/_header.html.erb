@@ -20,9 +20,9 @@ Unless required by applicable law or agreed to in writing, software distributed
     <div class="row-fluid whitespace-half">
     <header>
 
-      <div class="col-sm-4 logo">
+      <div class="lib-logo col-sm-4 hidden-xs">
         <%= ualib_logo_link %>
-          <%= link_to "ERA Home", "https://era.library.ualberta.ca", :class => "era-link" %>
+        <%= link_to "ERA Home", "https://era.library.ualberta.ca", :class => "era-link" %>
       </div>
 
       <div class="mast-branding col-sm-4">
@@ -32,9 +32,7 @@ Unless required by applicable law or agreed to in writing, software distributed
       </div>
 
       <%# By default shift log in / log out to the header %>
-      <div class="pull-right log-in-out">
-        <%= render partial: "modules/user_util_dropdowns"%>
-      </div>
+      <%= render partial: "modules/user_util_dropdowns"%>
     </header>
     </div>
   </div>

@@ -76,15 +76,58 @@ h4 {
 #masthead {
   min-height: 0;
   padding: 0;
+  display: none;
+  background-color: #ebe8e5;
 }
 
-#masthead {
-  display: none;
+#masthead .lib-logo {
+  padding-top: 10px;
+  padding-left: 10px;
 }
+#masthead .lib-logo a.logo {
+  padding-bottom: 6px;
+  padding-top: 8px;
+  background-image: asset_url('lib-logo.png');
+  background-repeat: no-repeat;
+  background-size: 200px;
+  background-position: 0px 0px;
+  display: inline-block;
+  height: 30px;
+  width: 200px;
+  }
+#masthead .lib-logo a.logo:hover {
+  background-position: 0px -40px;
+}
+#masthead .lib-logo .btn {
+  float: right;
+  font-size: 16px;
+  font-weight: bold;
+  margin-top: 10px;
+}
+#masthead .lib-logo .btn span {
+  margin-left: -5px;
+}
+
+#masthead .era-link {
+  display:block;
+  font-size:16px;
+  color:#fff;
+  font-family: 'Playfair Display', serif;
+  margin-top:5px;
+  background-color:#2d353d;
+  border-radius:5px;
+  padding:5px 10px;
+  width:100px;
+}
+#masthead .era-link:hover {
+  color:#efefef;
+  background-color:#000;
+}
+
 #masthead .mast-branding {
   color: #222;
   margin: 0px 0px 0px 0px;
-  padding: 0px;
+  padding: 10px 0px;
   text-align: center;
 }
 #masthead .mast-branding h1 {
@@ -116,6 +159,13 @@ h4 {
   letter-spacing: -5px;
 }
 
+#masthead .login_button {
+  font-family: 'Abel', sans-serif;
+}
+#masthead .login_button .glyphicon-log-in {
+  padding-right: 5px;
+}
+
 .mast-branding h1 a:hover,
 .mast-branding h1 a:active,
 .mast-branding h1 a:visited,
@@ -129,6 +179,7 @@ h4 {
 .navbar-header .mast-branding {
   margin: 1px 0px 0px 1px;
   text-align: left;
+  width: 50%;
 }
 .navbar-header .mast-branding h1 {
   font-size: 20px;
