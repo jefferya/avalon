@@ -24,6 +24,7 @@ describe 'homepage' do
     page.should have_content('Featured Collection')
     page.should have_content('Featured Video')
     page.should have_content('Featured Audio')
+    # The theme at U of A doesn't match the upstream theme
     page.should have_link('Powered by Avalon')
     page.should have_link('Contact Us')
     # U of A puts the following in an HTML comment, so we check "source"
@@ -51,6 +52,7 @@ end
 describe 'checks navigation to external links' do
   it 'checks navigation to Avalon Website' do
     visit '/'
+    # U of A custom theme
     click_link('Powered by Avalon')
     expect(page.status_code).to eq(200)
     expect(page.current_url).to eq('http://www.avalonmediasystem.org/')
@@ -58,12 +60,40 @@ describe 'checks navigation to external links' do
   it 'checks navigation to Contact us page' do
     visit '/'
     click_link('Contact Us')
-    #UofA custom contact page
+    # U of A custom contact page
     expect(page.current_url).to eq('http://www.example.com/contact')
     page.should have_content('ERA HelpDesk')
     page.should have_link('erahelp@ualberta.ca',
                           href: 'mailto:erahelp@ualberta.ca')
     page.should have_content('780.492.4359')
+  end
+  it 'checks navigation to Deposit page' do
+    visit '/'
+    # U of A custom page
+    click_link('How to Deposit')
+    expect(page.current_url).to eq('http://www.example.com/deposit')
+    page.should have_content('How to deposit')
+  end
+  it 'checks navigation to About page' do
+    visit '/'
+    # U of A custom page
+    click_link('About ERA A&plus;V')
+    expect(page.current_url).to eq('http://www.example.com/about_eraav')
+    page.should have_content('Key features include')
+  end
+  it 'checks navigation to Policies page' do
+    visit '/'
+    # U of A custom page
+    click_link('Policies')
+    expect(page.current_url).to eq('http://www.example.com/policies')
+    page.should have_content('Content Policy')
+  end
+  it 'checks navigation to Technology page' do
+    visit '/'
+    # U of A custom page
+    click_link('Technology and Partnerships')
+    expect(page.current_url).to eq('http://www.example.com/technology')
+    page.should have_content('Technology and Partnerships')
   end
   it 'verifies presence of features after login' do
     user = FactoryGirl.create(:administrator)
