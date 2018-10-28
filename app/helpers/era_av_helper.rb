@@ -19,7 +19,7 @@ module EraAvHelper
 
   def era_av_logo_link
     image =
-      image_tag("ERA-A+V-beta-logo.png",
+      image_tag("/assets/ERA-AV-logo.png",
                 alt: "#{t('ualberta.era_av_full')} "\
                 "- #{t(:release_label)} #{Avalon::VERSION}")
     return image if current_page?(root_path)

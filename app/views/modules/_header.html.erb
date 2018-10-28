@@ -20,19 +20,19 @@ Unless required by applicable law or agreed to in writing, software distributed
     <div class="row-fluid whitespace-half">
     <header>
 
-      <div class="lib-logo col-sm-4 hidden-xs">
+      <div class="lib-logo col-sm-5 hidden-xs">
         <%= ualib_logo_link %>
         <%= link_to "ERA Home", "https://era.library.ualberta.ca", :class => "era-link" %>
       </div>
 
       <div class="mast-branding col-sm-4">
-        <h2>education &amp; research archive</h2>
-        <h1><a href="/">ERA</a></h1>
-        <h3><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span>AUDIO <span class="plus-head">&plus;</span> VIDEO</h3>
+        <%= era_av_logo_link %>
       </div>
 
       <%# By default shift log in / log out to the header %>
-      <%= render partial: "modules/user_util_dropdowns"%>
+      <div class="col-sm-3">
+        <%= render partial: "modules/user_util_dropdowns"%>
+      </div>
     </header>
     </div>
   </div>

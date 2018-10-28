@@ -126,40 +126,16 @@ h4 {
 #masthead .mast-branding {
   color: #222;
   margin: 0px 0px 0px 0px;
-  padding: 10px 0px;
-  text-align: center;
+  padding: 5px 0px;
 }
-#masthead .mast-branding h1 {
-  font-size: 98px;
-  font-weight: bold;
-  line-height: 85px;
-  padding: 0px 0px 0px 0px !important;
-  margin: -8px 0px 0px 0px !important;
-}
-#masthead .mast-branding h2 {
-  display: block;
-  font-size: 14px;
-  margin: 0px 0px 0px 0px;
-  padding: 0px;
-}
-#masthead .mast-branding h3 {
-  display: block;
-  font-size: 25px;
-  margin: 0px 0px 0px 0px;
-  font-family: 'Open Sans', sans-serif;
-  font-weight: semi-bold;
-}
-#masthead .mast-branding h3 .glyphicon-triangle-right {
-  font-size: 16px;
-}
-#masthead .mast-branding h1 > a {
-  color: #222;
-  background-color: transparent;
-  letter-spacing: -5px;
+
+#masthead .mast-branding img {
+  height: 100px;
 }
 
 #masthead .login_button {
   font-family: 'Abel', sans-serif;
+  padding: 0px;
 }
 #masthead .login_button .glyphicon-log-in {
   padding-right: 5px;
@@ -189,9 +165,4 @@ h4 {
   margin: 0px 0px 0px 0px;
   font-family: 'Open Sans', sans-serif;
   font-weight: normal;
-}
-
-/* BEGIN STYLES FOR LARGER DEVICES */
-/* Small devices (tablets, 768px and up) */
-@media (min-width: 768px) {
 }
