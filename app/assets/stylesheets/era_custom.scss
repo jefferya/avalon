@@ -17,15 +17,28 @@ div.terms-of-use-custom {
   margin-right: 30px;
 }
 
-.info-pane p > a {
+#content .info-pane p > a {
   text-decoration: none;
   color: #337ab7 !important;
+}
+
+#content #featured_content video {
+  opacity: 0.3;
+}
+
+#content #featured_content .post-content {
+  color: #333333;
+  text-align: center;
+  padding: 0px 10%;
+  width: 100%;
+  position: absolute;
+  bottom: 0px;
 }
 
 /* BEGIN STYLES FOR LARGER DEVICES */
 /* Small devices (tablets, 768px and up) */
 @media (min-width: 768px) {
-  .info-pane p {
+  #content .info-pane p {
     padding: 20px 0px;
     text-indent: 4%;
     font-size: 160%;
