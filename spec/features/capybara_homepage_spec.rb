@@ -20,9 +20,10 @@ describe 'homepage' do
     visit 'http://0.0.0.0:3000'
     page.should have_content('Sample Content')
     page.should have_link('Browse')
-    page.should have_content('Featured Collection')
-    page.should have_content('Featured Video')
-    page.should have_content('Featured Audio')
+    # UofA custom
+    page.should have_content('Featured Video Collection')
+    page.should have_content('Featured Audio Collection')
+    page.should have_content('Featured Item')
     page.should have_link('Avalon Media System Project Website')
     page.should have_link('Contact Us')
     page.should have_content('Avalon Media System Release')
