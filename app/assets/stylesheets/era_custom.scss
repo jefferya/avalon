@@ -27,19 +27,20 @@ div.terms-of-use-custom {
 }
 
 #content #featured_content .post-content {
-  padding: 0px 10%;
+  padding: 0px 0px;
   width: 100%;
   position: absolute;
   bottom: 0px;
 }
 
 #content #featured_content .post-content h5 {
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: rgba(0, 0, 0, 0.75);
   color: #efefef;
-  letter-spacing: 2px;
+  font-weight: normal;
+  letter-spacing: -0.05px;
   text-align: center;
   margin: 0px 0px;
-  padding: 2px 0px;
+  padding: 5px 0px;
 }
 
 /* BEGIN STYLES FOR LARGER DEVICES */
