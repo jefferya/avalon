@@ -18,7 +18,7 @@ describe 'homepage' do
   after { Warden.test_reset! }
   it 'validates presence of header and footer on homepage' do
     visit 'http://0.0.0.0:3000'
-    page.should have_content('Sample Content')
+    page.should have_content('Featured Content')
     page.should have_link('Browse')
     # UofA custom
     page.should have_content('Featured Video Collection')

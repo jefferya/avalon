@@ -22,17 +22,24 @@ div.terms-of-use-custom {
   color: #337ab7 !important;
 }
 
-#content #featured_content video {
-  opacity: 0.3;
+#content #featured_content h4 {
+  text-align: center;
 }
 
 #content #featured_content .post-content {
-  color: #333333;
-  text-align: center;
   padding: 0px 10%;
   width: 100%;
   position: absolute;
   bottom: 0px;
+}
+
+#content #featured_content .post-content h5 {
+  background-color: rgba(0, 0, 0, 0.6);
+  color: #efefef;
+  letter-spacing: 2px;
+  text-align: center;
+  margin: 0px 0px;
+  padding: 2px 0px;
 }
 
 /* BEGIN STYLES FOR LARGER DEVICES */
