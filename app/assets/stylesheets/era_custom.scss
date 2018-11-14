@@ -1,3 +1,6 @@
+$splash_content_link: #337ab7;
+$white_text_on_black: #efefef;
+
 span.tooltip-label-parenthesis {
   font-weight: normal;
   font-size: smaller;
@@ -19,11 +22,12 @@ div.terms-of-use-custom {
 
 #content .info-pane p > a {
   text-decoration: none;
-  color: #337ab7 !important;
+  color: $splash_content_link;
 }
 
-#content #featured_content h4 {
-  text-align: center;
+#content #featured_content img {
+  padding: 0px;
+  border: unset;
 }
 
 #content #featured_content .post-content {
@@ -35,10 +39,9 @@ div.terms-of-use-custom {
 
 #content #featured_content .post-content h5 {
   background-color: rgba(0, 0, 0, 0.75);
-  color: #efefef;
+  color: $white_text_on_black;
   font-weight: normal;
   letter-spacing: -0.05px;
-  text-align: center;
   margin: 0px 0px;
   padding: 5px 0px;
 }
