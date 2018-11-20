@@ -1,6 +1,6 @@
 default: &default
   adapter: solr
-  url: <%= Rails.application.secrets.solr_url %>
+  url: <%= ENV['SOLR_URL'] || 'http://localhost:8983/solr/development' %>
 development:
   adapter: solr
   url: <%= ENV['SOLR_URL'] || 'http://localhost:8983/solr/development' %>

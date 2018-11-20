@@ -328,24 +328,24 @@ describe MasterFile do
         }
 
         before(:each) do
-          @old_media_path = Rails.application.secrets.matterhorn_client_media_path
+          @old_media_path = Settings.matterhorn.client_media_path
           FileUtils.mkdir_p media_path
           FileUtils.cp fixture, tempfile
         end
 
         after(:each) do
-          Rails.application.secrets.matterhorn_client_media_path = @old_media_path
+          Settings.matterhorn.client_media_path = @old_media_path
           File.unlink subject.file_location
           FileUtils.rm_rf media_path
         end
 
         it "should rename an uploaded file in place" do
-          Rails.application.secrets.matterhorn_client_media_path = nil
+          Settings.matterhorn.client_media_path = nil
           expect(subject.file_location).to eq(File.realpath(File.join(File.dirname(tempfile),original)))
         end
 
         it "should copy an uploaded file to the media path" do
-          Rails.application.secrets.matterhorn_client_media_path = media_path
+          Settings.matterhorn.client_media_path = media_path
           expect(subject.working_file_path).to eq(File.join(media_path,original))
         end
       end
@@ -515,12 +515,12 @@ describe MasterFile do
     let(:working_dir) {'/path/to/working_dir/'}
     before do
       ActiveJob::Base.queue_adapter = :test
-      @old_path = Rails.application.secrets.matterhorn_client_media_path
-      Rails.application.secrets.matterhorn_client_media_path= working_dir
+      @old_path = Settings.matterhorn.client_media_path
+      Settings.matterhorn.client_media_path= working_dir
     end
 
     after do
-      Rails.application.secrets.matterhorn_client_media_path = @old_path
+      Settings.matterhorn.client_media_path = @old_path
     end
     describe 'post_processing_working_directory_file_management' do
       it 'enqueues the working directory cleanup job' do

@@ -1,5 +1,6 @@
 development: &default
-  url: <%= Rails.application.secrets.matterhorn_url %>
+  url: <%= ENV['MATTERHORN_URL'] ||
+           "http://matterhorn_system_account:CHANGE_ME@localhost:8080/" %> 
 test:
   <<: *default
 uat:

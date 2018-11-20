@@ -282,8 +282,8 @@ class MasterFile < ActiveFedora::Base
     unless old_path.present? && File.exists?(old_path)
       old_path = file_location
     end
-    new_path = old_path.gsub(Rails.application.secrets.matterhorn_client_media_path,
-                             Rails.application.secrets.matterhorn_server_media_path)
+    new_path = old_path.gsub(Settings.matterhorn.client_media_path,
+                             Settings.matterhorn.server_media_path)
 
     FileLocator.new(new_path).uri.to_s
   end
@@ -529,7 +529,7 @@ class MasterFile < ActiveFedora::Base
 
   def working_file_path
     path = nil
-    config_path = Rails.application.secrets.matterhorn_client_media_path
+    config_path = Settings.matterhorn.client_media_path
     path = File.join(config_path, File.basename(self.file_location)) if config_path.present? && File.directory?(config_path)
     path
   end
@@ -731,7 +731,7 @@ class MasterFile < ActiveFedora::Base
     else
       # Do nothing
     end
-    CleanupWorkingFileJob.perform_later(self.id) unless Rails.application.secrets.matterhorn_client_media_path.blank?
+    CleanupWorkingFileJob.perform_later(self.id) unless Settings.matterhorn.client_media_path.blank?
   end
 
   def update_ingest_batch

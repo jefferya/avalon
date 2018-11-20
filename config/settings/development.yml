@@ -1,2 +1,19 @@
 domain:
   port: 3000
+
+matterhorn:
+  url: <%= ENV['MATTERHORN_URL'] ||
+           "http://matterhorn_system_account:CHANGE_ME@localhost:8080/" %> 
+  client_media_path: <%= ENV['MATTERHORN_CLIENT_MEDIA_PATH'] ||
+                                    File.join(Rails.root, 'masterfiles') %>
+  server_media_path: <%= ENV['MATTERHORN_SERVER_MEDIA_PATH'] ||
+                                    '/masterfiles' %>
+
+solr:
+  url: <%= ENV['SOLR_URL'] || 'http://localhost:8983/solr/development' %>
+
+blacklight:
+  url: <%= ENV['SOLR_URL'] || 'http://localhost:8983/solr/development' %>
+
+redis:
+  url: <%= ENV['REDIS_URL'] || 'http://localhost:6379' %>

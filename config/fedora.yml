@@ -1,8 +1,8 @@
 default: &default
-  user: <%= Rails.application.secrets.fcrepo_user %>
-  password: <%= Rails.application.secrets.fcrepo_password %>
-  url: <%= Rails.application.secrets.fcrepo_url %>
-  base_path: <%= Rails.application.secrets.fcrepo_base_path %>
+  user: fedoraAdmin
+  password: fedoraAdmin
+  url: <%= ENV['FCREPO_URL'] || 'http://localhost:8984/fcrepo/rest' %>
+  base_path: /dev
 development:
   <<: *default
 test:

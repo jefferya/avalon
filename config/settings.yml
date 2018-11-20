@@ -12,16 +12,18 @@ matterhorn:
   root: 'http://localhost:8080/'
   baseApplication: 'avalon'
   cleanup_log: 'log/cleanup_jobs.log'
+  client_media_path: '/masterfiles'
+  server_media_path: '/masterfiles'
 mediainfo:
   path: '/usr/bin/mediainfo'
 ffmpeg:
   path: '/usr/local/bin/ffmpeg'
 email:
   mailer: :smtp
-  comments: <%= Rails.application.secrets.email_comments %>
-  notification: <%= Rails.application.secrets.email_notification %>
-  support: <%= Rails.application.secrets.email_support %>
-  errors: <%= Rails.application.secrets.email_errors %>
+  comments: 'avalon-comments@example.edu'
+  notification: 'avalon-notifications@example.edu'
+  support: 'avalon-support@example.edu'
+  errors: 'avalon-errors@example.edu'
 solr:
   configset: avalon
   configset_source_path: <%= File.join(Rails.root, 'solr', 'config') %>
@@ -75,11 +77,11 @@ auth:
       :params:
         :fields:
         - :email
-<% if Rails.application.secrets.lti_auth_key.present? %>
+<% if ENV['LTI_AUTH_KEY'] %>
     - :name: Avalon LTI OAuth
       :provider: :lti
       :hidden: true
       :params:
         :oauth_credentials:
-          <%= Rails.application.secrets.lti_auth_key %>: <%= Rails.application.secrets.lti_auth_secret %>
+          <%= ENV['LTI_AUTH_KEY'] %>: <%= ENV['LTI_AUTH_SECRET'] %> 
 <% end %>
