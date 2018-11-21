@@ -29,6 +29,8 @@ and releases in Jupiter project adheres to [Semantic Versioning](http://semver.o
 
 ### Changed
 
+- Alter config parameter handling to match upstream PR [#413](https://github.com/ualbertalib/avalon/pull/413)
+  - Note: matterhorn client and server media_path 
 - switch backend from PostgreSQL to MySQL (MariaDB) - Docker & Travis [#405](https://github.com/ualbertalib/avalon/pull/405)
 - resource description form: remove ability to import by bibliographic id [#398](https://github.com/ualbertalib/avalon/pull/398)
 - resource description form: add deposit agreement checkbox [#394](https://github.com/ualbertalib/avalon/pull/394)
