@@ -6,6 +6,8 @@ $white-text-on-black: #efefef;
   color: $splash-content-link;
 }
 
+// FIXME: We need to override the styles in avalon.scss here
+// should probably fix this and remove the usage of an ID selection
 #featured_content img {
   padding: 0px;
   border: unset;
