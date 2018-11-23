@@ -5,7 +5,7 @@
         <li>
           <%= link_to  destroy_user_session_path do %>
             <span class="glyphicon glyphicon-log-out"></span>
-            Log out
+            <%= t('ualberta.era_av_sign_out') %>
           <% end %>
         </li>
       </ul>
@@ -14,7 +14,7 @@
     <div class="btn-group login_button pull-right">
       <%= link_to(new_user_session_path, class: "btn btn-default btn-group", title: "Login") do %>
         <span class="glyphicon glyphicon-log-in" aria-hidden="true"></span>
-        Login
+        <%= t('ualberta.era_av_sign_in') %>
       <% end %>
     </div>
 <% end %>

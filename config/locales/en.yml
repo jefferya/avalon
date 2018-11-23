@@ -249,6 +249,9 @@ en:
 
   ualberta:
     era_av_full: "University of Alberta ERA Audio and Video"
+    era_home: "ERA Home"
+    era_av_sign_in: "Log in"
+    era_av_sign_out: "Log out"
 
   powered_by_avalon: "Powered by Avalon"
 
