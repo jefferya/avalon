@@ -179,11 +179,11 @@ Rails.application.routes.draw do
   get '/jobs', to: redirect('/')
 
   # UofA ERA routes - footer
-  get 'policies' => 'pages#policies', id: 'policies_page'
-  get 'technology' => 'pages#technology', id: 'technology_page'
-  get 'deposit' => 'pages#deposit', id: 'deposit_page'
-  get 'contact' => 'pages#contact', id: 'contact_page'
-  get 'about_eraav' => 'pages#about_eraav', id: 'about_eraav_page'
+  get '/policies', to: 'pages#policies'
+  get '/technology', to: 'pages#technology'
+  get '/deposit', to: 'pages#deposit'
+  get '/contact', to: 'pages#contact'
+  get '/about_eraav', to: 'pages#about_eraav'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
