@@ -11,6 +11,7 @@ $era-link-text-hover: #efefef;
   background-color: $header-background;
 }
 
+// UAL logo change colour on hover by changing the background position
 .custom-header .lib-logo a.logo {
   background-image: asset_url('lib-logo.png');
   background-repeat: no-repeat;
@@ -24,12 +25,10 @@ $era-link-text-hover: #efefef;
 }
 
 .custom-header .lib-logo a.era-link {
-  font-size: 16px;
   color: $era-link-text;
   font-family: 'Playfair Display', serif;
   margin-top: 5px;
   background-color: $era-link-background;
-  border-radius: 5px;
   padding: 5px 10px;
   width: 100px;
 }
