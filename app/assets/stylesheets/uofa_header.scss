@@ -45,12 +45,20 @@ $era-link-text-hover: #efefef;
   height: 100px;
 }
 
-.custom-header .login_button {
+.custom-header .login_button,
+.custom-header .user_utility_links {
   font-family: 'Abel', sans-serif;
   padding: 0px;
 }
 .custom-header .login_button .glyphicon-log-in {
   padding-right: 5px;
+}
+
+.custom-header .user_utility_links ul.dropdown-menu {
+  position: relative;
+}
+.custom-header .user_utility_links span.caret {
+  margin-left: 5px;
 }
 
 // mobile device CSS via class desktop-hidden

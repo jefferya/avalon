@@ -252,6 +252,7 @@ en:
     era_home: "ERA Home"
     era_av_sign_in: "Log in"
     era_av_sign_out: "Log out"
+    era_av_addition_signin: "select for additional menu options"
 
   powered_by_avalon: "Powered by Avalon"
 
