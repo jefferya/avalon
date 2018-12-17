@@ -1,6 +1,6 @@
 # Avalon 6 config via environment variables
 
-## General notes
+## Summary
 
 Avalon uses two main approaches when setting config parameters:
 
@@ -21,6 +21,8 @@ Avalon uses two main approaches when setting config parameters:
   ffmpeg
     path: 'x'
 ```
+
+The following section details the necessary properties with an example following.
 
 ## Environment variables to set
 
@@ -60,46 +62,47 @@ Solr and Blacklight: set environment variable `SOLR_URL`. E.G., SOLR_URL='http:/
 
 The following is a list of properties managed via the Config Gem thru the `settings.yml` and associated yaml files. These properties are identified via the double underscore property from Gem Config (config/initializers/config.rb).
 
-- `SETTINGS__NAME`: used in page titles E.G. SETTINGS\_\_NAME='UAL-Avalon6-dev'
+- `SETTINGS__NAME`: used in page titles
 
-- `SETTINGS__DOMAIN`: {domain.protocol}://{domain.host}:{domain.port} E.G., SETTINGS\_\_DOMAIN='https://avdev01.library.ualberta.ca/'
+- `SETTINGS__DOMAIN`: {domain.protocol}://{domain.host}:{domain.port}
 
-- `SETTINGS__BIB_RETRIEVER__PROTOCOL`: E.G., SETTINGS\_\_BIB_RETRIEVER\_\_PROTOCOL=z39.50
+- `SETTINGS__BIB_RETRIEVER__PROTOCOL`:
 - `SETTINGS__BIB_RETRIEVER__HOST`:
 - `SETTINGS__BIB_RETRIEVER__PORT`:
 - `SETTINGS__BIB_RETRIEVER__DATABASE`:
 - `SETTINGS__BIB_RETRIEVER__ATTRIBUTE`:
 
-- `SETTINGS__CONTROLLED_VOCABULARY`: E.G., SETTINGS\_\_CONTROLLED_VOCABULARY='config/controlled_vocabulary.yml'
+- `SETTINGS__CONTROLLED_VOCABULARY`: E.G., config/controlled_vocabulary.yml'
 
-* Avalon drop box for files (not DropBox the company
+- Avalon drop box for files (not DropBox the company)
 
-  - `SETTINGS__DROPBOX__PATH`: E.G. SETTINGS\_\_DROPBOX\_\_PATH=/srv/avalon6/dropbox/
-  - `SETTINGS__DROPBOX__UPLOAD_URI`: E.G. SETTINGS\_\_DROPBOX\_\_UPLOAD_URI=sftp://host/dropbox
+  - `SETTINGS__DROPBOX__PATH`:
+  - `SETTINGS__DROPBOX__UPLOAD_URI`:
 
 - E-mail
 
-  - `SETTINGS__EMAIL__COMMENTS`: E.G. SETTINGS\_\_EMAIL\_\_COMMENTS=deploy@localhost
-  - `SETTINGS__EMAIL__NOTIFICATION`: SETTINGS\_\_EMAIL\_\_NOTIFICATION=deploy@localhost
-  - `SETTINGS__EMAIL__SUPPORT`: SETTINGS\_\_EMAIL\_\_SUPPORT=deploy@localhost
-  - `SETTINGS__EMAIL__ERRORS`: SETTINGS\_\_EMAIL\_\_ERRORS=deploy@localhost
-  - `SETTINGS__EMAIL__MAILER__SMTP__ADDRESS`: SETTINGS\_\_EMAIL\_\_MAILER\_\_SMTP\_\_ADDRESS=localhost
-  - `SETTINGS__EMAIL__MAILER__SMTP__PORT`: SETTINGS\_\_EMAIL\_\_MAILER\_\_SMTP\_\_PORT=25
-  - `SETTINGS__EMAIL__MAILER__SMTP__ENABLE_STARTTLS_AUTO`: SETTINGS\_\_EMAIL\_\_MAILER\_\_SMTP\_\_ENABLE_STARTTLS_AUTO=true
+  - `SETTINGS__EMAIL__COMMENTS`:
+  - `SETTINGS__EMAIL__NOTIFICATION`:
+  - `SETTINGS__EMAIL__SUPPORT`:
+  - `SETTINGS__EMAIL__ERRORS`:
+  - `SETTINGS__EMAIL__MAILER__SMTP__ADDRESS`:
+  - `SETTINGS__EMAIL__MAILER__SMTP__PORT`:
+  - `SETTINGS__EMAIL__MAILER__SMTP__ENABLE_STARTTLS_AUTO`:
 
-- `SETTINGS__FFMPEG__PATH`: SETTINGS\_\_FFMPEG\_\_PATH='/usr/bin/ffmpeg'
+- `SETTINGS__FFMPEG__PATH`: E.G., '/usr/bin/ffmpeg'
 
-- `SETTINGS__MASTER_FILE_MANAGEMENT__STRATEGY`: SETTINGS\_\_MASTER_FILE_MANAGEMENT\_\_STRATEGY='none'
+- `SETTINGS__MASTER_FILE_MANAGEMENT__STRATEGY`: E.G., 'none'
 
-- `SETTINGS__MEDIAINFO__PATH`: SETTINGS\_\_MEDIAINFO\_\_PATH='/usr/bin/mediainfo'
+- `SETTINGS__MEDIAINFO__PATH`: E.G., '/usr/bin/mediainfo'
 
 - Streaming server
 
-  - `SETTINGS__STREAMING__SERVER=`: SETTINGS\_\_STREAMING\_\_SERVER='wowza'
-  - `SETTINGS__STREAMING__CONTENT_PATH=`: SETTINGS\_\_STREAMING\_\_CONTENT_PATH='/avalon6'
-  - `SETTINGS__STREAMING__STREAM_DEFAULT_QUALITY=`: SETTINGS\_\_STREAMING\_\_STREAM_DEFAULT_QUALITY='medium'
-  - `SETTINGS__STREAMING__STREAM_TOKEN_TTL=`: SETTINGS\_\_STREAMING\_\_STREAM_TOKEN_TTL='20'
-  - `SETTINGS__STREAMING__RTMP_BASE=`: SETTINGS\_\_STREAMING\_\_RTMP_BASE='rtmp://{fqdn}/avalon6'
+  - `SETTINGS__STREAMING__SERVER=`: E.G., 'wowza'
+  - `SETTINGS__STREAMING__CONTENT_PATH=`:
+  - `SETTINGS__STREAMING__STREAM_DEFAULT_QUALITY=`:
+  - `SETTINGS__STREAMING__STREAM_TOKEN_TTL=`:
+  - `SETTINGS__STREAMING__RTMP_BASE=`: E.G., 'rtmp://{fqdn}/avalon6'
+  - `SETTINGS__STREAMING__HTTP_BASE`: E.G., 'http://{fqdn}:1935/avalon6/_definst_'
 
 ## Example
 
