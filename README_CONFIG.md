@@ -58,6 +58,19 @@ Other parameters:
 
 Solr and Blacklight: set environment variable `SOLR_URL`. E.G., SOLR_URL='http://localhost:8983/solr/avalon'
 
+### Other
+
+- Google Analytics
+
+  - `GOOGLE_ANALYTICS_TOKEN`
+
+- Secret Key Base
+
+  - `SECRET_KEY_BASE`
+
+- Rollbar
+  - `ROLLBAR_TOKEN`: TODO - unsure is this is active
+
 ### Config Gem managed properties
 
 The following is a list of properties managed via the Config Gem thru the `settings.yml` and associated yaml files. These properties are identified via the double underscore property from Gem Config (config/initializers/config.rb).
@@ -175,4 +188,12 @@ SETTINGS__STREAMING__STREAM_DEFAULT_QUALITY='medium'
 SETTINGS__STREAMING__STREAM_TOKEN_TTL='20'
 SETTINGS__STREAMING__RTMP_BASE='rtmp://{host}/avalon6'
 SETTINGS__STREAMING__HTTP_BASE='http://{host}:1935/avalon6/_definst_'
+
+#Other
+
+SECRET_KEY_BASE
+GOOGLE_ANALYTICS_TOKEN
+ROLLBAR_TOKEN
+
+
 ```
