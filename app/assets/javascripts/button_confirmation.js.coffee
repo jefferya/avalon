@@ -17,7 +17,6 @@
 # to all disjointed submit elements as is needed in some of the workflow steps
 
 $ ->
-  dataMetList = $.fn.tooltip.Constructor.DEFAULTS.whiteList
   apply_button_confirmation()
 
 @apply_button_confirmation = () ->
