@@ -21,6 +21,8 @@ $ ->
 
 @apply_button_confirmation = () ->
   $(document).on 'click', '.btn-confirmation+.popover .btn', ->
+    dataMethodWhiteList = $.fn.tooltip.Constructor.DEFAULTS.whiteList
+    dataMethodWhiteList.a = ['data-method']
     $('.btn-confirmation').popover 'hide'
     true
   $('.btn-confirmation').popover(
