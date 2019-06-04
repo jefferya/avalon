@@ -17,8 +17,8 @@ Most of Avalon's configuration settings can be replaced by environment variables
     * `STREAM_HTTP_BASE`
     * `STREAM_DEFAULT_QUALITY`
   * `SYSTEM_GROUPS`
-  * `MASTER_FILE_STRATEGY`: `delete`, `move`, or `none`
-  * `MASTER_FILE_PATH`: If strategy is `move`
+  * `MASTER_FILE_STRATEGY`: `delete`, `move`, `none`, or `move_ui_upload_only`
+  * `MASTER_FILE_PATH`: If strategy is `move` or `move_ui_upload_only`
   * `FFMPEG_PATH`: Path to `ffmpeg` binary
   * `CONTROLLED_VOCABULARY`: Path to controlled vocabulary file
   * Outgoing email addresses for comments, notifications, and support:
