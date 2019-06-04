@@ -1,6 +1,7 @@
 {
   "DATABASE_URL":"mysql2://{username}:{password}@localhost:3306/rails?pool=5&timeout=5000",
   "FEDORA_URL":"http://{username}:{password}@localhost:8984/fedora/rest/prod",
+  "FEDORA_BASE_PATH":"/prod"                                         
   "MATTERHORN_URL":"http://matterhorn_system_account:{password}@{host}:4080/",
   "MATTERHORN_CLIENT_MEDIA_PATH":"/masterfiles",
   "MATTERHORN_SERVER_MEDIA_PATH":"/masterfiles",

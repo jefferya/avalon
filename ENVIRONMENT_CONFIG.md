@@ -50,6 +50,7 @@ Most of Avalon's configuration settings can be replaced by environment variables
   * `DATABASE_URL`: A URL describing the database connection Avalon should use (see [Configuring a Database](http://edgeguides.rubyonrails.org/configuring.html#configuring-a-database) in the Rails Configuration Guide)
 * `fedora.yml`:
   * `FEDORA_URL`: The URL and credentials of the Avalon Fedora server (e.g., `http://fedoraAdmin:fedoraAdmin@localhost:8983/fedora`)
+  * `FEDORA_BASE_PATH`: The base path where Fedora objects are stored (e.g., `prod`, `staging`, `dev`, etc.)
 * `matterhorn.yml`:
   * `MATTERHORN_URL`: The URL and credentials of the Matterhorn service interface (e.g., `http://matterhorn_system_account:CHANGE_ME@localhost:8080/`)
 * `secrets.yml`:
