@@ -7,20 +7,19 @@ and releases in Jupiter project adheres to [Semantic Versioning](http://semver.o
 
 ## Table of Contents
 
-- [Unreleased](Unreleased)
+- [Avalon-6 Production v6.4.3.20190809.uofa](#Production v6.4.3.20190809.uofa)
 - [Avalon-6 Production v6.4.3.20190709.uofa](#Production v6.4.3.20190709.uofa)
 - [Avalon-6 6.4.3.Unreleased](#Avalon.v6.4.3.Unreleased)
 - [Avalon-6 6.4.2.Unreleased](#Avalon.v6.4.2.Unreleased)
 - [Avalon-5 v5.1.5.20180727](#Avalon-v5.1.5.20180727)
 
-
-
-<a name="Unreleased" />
-## Unreleased 
+<a name="Production v6.4.3.20190709.uofa" />
+## Avalon-6 Production v6.4.3.20190809.uofa
 
 ### Added
-- include controlled vocabulary config file to repo
 
+- include controlled vocabulary config file to repo
+- add missing Rollbar initializer
 
 <a name="Production v6.4.3.20190709.uofa" />
 ## Production v6.4.3.20190709.uofa
