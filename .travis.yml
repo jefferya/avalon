@@ -32,5 +32,5 @@ global_env:
 rvm:
   - 2.5
   - 2.6
-dist: bionic 
+dist: xenial
 sudo: required
