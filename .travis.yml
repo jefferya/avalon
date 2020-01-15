@@ -15,6 +15,7 @@ before_install:
   - sudo apt-get update
   - sudo apt-get install mediainfo
   - sudo ln -s /usr/bin/lsof /usr/sbin/lsof
+  - gem install bundler
   - bundle config without development:production:staging:uat
   - bundle --version
 before_script:
@@ -31,5 +32,5 @@ global_env:
 rvm:
   - 2.5
   - 2.6
-dist: trusty
+dist: bionic 
 sudo: required
