@@ -15,6 +15,7 @@ before_install:
   - sudo apt-get update
   - sudo apt-get install mediainfo
   - sudo ln -s /usr/bin/lsof /usr/sbin/lsof
+  - gem update --system
   - gem install bundler
   - bundle config without development:production:staging:uat
   - bundle --version
