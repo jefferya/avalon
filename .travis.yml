@@ -19,6 +19,7 @@ before_install:
   - gem install bundler
   - bundle config without development:production:staging:uat
   - bundle --version
+  - nvm install 8
 before_script:
   - bundle exec rake db:create
   - bundle exec rake db:migrate
@@ -35,5 +36,3 @@ rvm:
   - 2.6
 dist: bionic 
 sudo: required
-node_js:
-  - 8
