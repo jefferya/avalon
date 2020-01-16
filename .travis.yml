@@ -28,11 +28,11 @@ script:
   - bundle exec rake
 language: ruby
 jdk:
-  - openjdk11
+  - openjdk8
 global_env:
   - BUNDLER_VERSION=1.17.3
 rvm:
   - 2.5
   - 2.6
-dist: bionic 
+dist: xenial 
 sudo: required
