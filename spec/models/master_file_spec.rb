@@ -27,13 +27,13 @@ describe MasterFile do
 
     describe 'staleness' do
       let(:stale_master_file) {
-        FactoryGirl.build(:master_file).tap do |mf|
+        FactoryBot.build(:master_file).tap do |mf|
           mf.create_date = 1.week.ago - 1.day
           mf.status_code = 'FAILED'
         end
       }
       let(:almost_stale_master_file) {
-        FactoryGirl.build(:master_file).tap do |mf|
+        FactoryBot.build(:master_file).tap do |mf|
           mf.create_date = 1.week.ago + 1.day
           mf.status_code = 'FAILED'
         end
@@ -316,7 +316,7 @@ describe MasterFile do
         let(:media_path) { File.expand_path("../../master_files-#{SecureRandom.uuid}",__FILE__)}
         let(:upload)     { ActionDispatch::Http::UploadedFile.new :tempfile => tempfile, :filename => original, :type => 'video/mp4' }
         let(:new_media_object) { MediaObject.new }
-        let(:collection) { FactoryGirl.create(:collection, name: 'rails env test')}
+        let(:collection) { FactoryBot.create(:collection, name: 'rails env test')}
         subject {
           mf = MasterFile.new()
           mf.setContent(upload)
