@@ -35,3 +35,5 @@ rvm:
   - 2.6
 dist: bionic 
 sudo: required
+node_js:
+  - 8
