@@ -315,7 +315,6 @@ describe MediaObjectsController, type: :controller do
         it "should create a new media_object, removing invalid data for non-required fields" do
           media_object = FactoryBot.create(:media_object)
           fields = media_object.export_descriptive_metadata_attributes
-          fields[:language] = ['???']
           fields[:related_item_url] = ['???']
           fields[:related_item_label] = ['???']
           fields[:note] = ['note']
