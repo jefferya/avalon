@@ -30,7 +30,6 @@ language: ruby
 jdk:
   - openjdk8
 global_env:
-  - BUNDLER_VERSION=1.17.3
 rvm:
   - 2.5
   - 2.6
