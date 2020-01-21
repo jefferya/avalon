@@ -124,6 +124,7 @@ services:
       - SETTINGS__STREAMING__HTTP_BASE=http://localhost:8880/avalon
       - SETTINGS__STREAMING__SERVER=nginx
       - SETTINGS__STREAMING__STREAM_TOKEN_TTL=20
+      - SETTINGS__TIMELINER__TIMELINER_URL=http://localhost:3000/timeliner
       - SYSTEM_GROUPS=administrator,group_manager,manager
       - Z3950_ATTRIBUTE
       - Z3950_DATABASE
