@@ -18,6 +18,7 @@ class CreateTimelines < ActiveRecord::Migration[5.1]
     change_column :minter_states, :id, :bigint, null: false, unique: true, auto_increment: true
     change_column :playlist_items, :id, :bigint, null: false, unique: true, auto_increment: true
     change_column :playlist_items, :playlist_id, :bigint, null: false
+    change_column :playlist_items, :clip_id, :bigint, null: false
     change_column :playlists, :id, :bigint, null: false, unique: true, auto_increment: true
     change_column :playlists, :user_id, :bigint, null: false
     change_column :role_maps, :id, :bigint, null: false, unique: true, auto_increment: true
