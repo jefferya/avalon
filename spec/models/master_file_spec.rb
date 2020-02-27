@@ -563,8 +563,12 @@ describe MasterFile do
 
   describe "waveform generation" do
     subject(:master_file) { FactoryBot.create(:master_file) }
+    let(:collection) { FactoryBot.create(:collection, name: 'rails env waveform test') }
+    let(:media_object) { MediaObject.new }
 
     it 'runs the waveform job' do
+      media_object.collection = collection
+      master_file.media_object = media_object
       expect(WaveformJob).to receive(:perform_now).with(master_file.id)
       master_file.send(:post_processing_file_management)
     end
