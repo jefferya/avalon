@@ -627,16 +627,11 @@ GEM
     pry-rails (0.3.9)
       pry (>= 0.10.4)
     public_suffix (4.0.1)
-<<<<<<< HEAD
     raabro (1.1.6)
     rack (2.0.9)
     rack-cors (1.0.6)
       rack (>= 1.6.0)
     rack-protection (2.0.5)
-=======
-    rack (1.6.13)
-    rack-protection (1.5.5)
->>>>>>> 9a0b1199... [Security] Bump omniauth from 1.7.1 to 1.9.1 (#617)
       rack
     rack-proxy (0.6.5)
       rack
