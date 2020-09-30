@@ -15,6 +15,7 @@
 class CleanupWorkingFileJob < ActiveJob::Base
   def perform(masterfile_id)
     masterfile = MasterFile.find(masterfile_id)
+    Rails.logger.debug "zzzz #{masterfile.inspect}" 
     masterfile.working_file_path.map do |path|
       parent_directory = File.dirname(path)
       File.delete(path) if File.exist?(path)
@@ -22,5 +23,6 @@ class CleanupWorkingFileJob < ActiveJob::Base
     end
     masterfile.working_file_path = nil
     masterfile.save!
+    Rails.logger.debug "zzzz2 #{masterfile.inspect}" 
   end
 end

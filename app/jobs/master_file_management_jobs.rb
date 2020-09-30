@@ -48,6 +48,7 @@ module MasterFileManagementJobs
 
     def perform(id, newpath)
       Rails.logger.debug "Moving masterfile to #{newpath}"
+      Rails.logger.debug "zzzzz 8b Moving masterfile to #{newpath}"
 
       masterfile = MasterFile.find(id)
       oldpath = masterfile.file_location
@@ -59,9 +60,12 @@ module MasterFileManagementJobs
         masterfile.file_location = newpath
       	masterfile.save
         Rails.logger.info "#{oldpath} has been moved to #{newpath}"
+        Rails.logger.debug "zzzzz 8c Moving masterfile from #{oldpath} to #{newpath}"
       else
         Rails.logger.error "MasterFile #{oldpath} does not exist"
+        Rails.logger.debug "zzzzz 8d #{oldpath} does not exist"
       end
+      Rails.logger.debug "zzzzz 8e Moving masterfile to #{masterfile.inspect}"
     end
   end
 

@@ -19,6 +19,7 @@ class WaveformJob < ActiveJob::Base
 
   def perform(master_file_id, regenerate = false)
     master_file = MasterFile.find(master_file_id)
+    Rails.logger.info "zzzz5 #{master_file.inspect}"
     return if master_file.waveform.content.present? && !regenerate
 
     service = WaveformService.new(8, SAMPLES_PER_FRAME)
