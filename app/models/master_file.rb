@@ -708,7 +708,7 @@ class MasterFile < ActiveFedora::Base
     realpath = File.realpath(file.path)
     
     Rails.logger.debug "zzzzs3 #{self.inspect}"
-    Rails.logger.debug "zzzzs3 #{file.inspect}"
+    Rails.logger.debug "zzzzs9a #{file.inspect}"
 
     if original_name.present?
       # If we have a temp name from an upload, rename to the original name supplied by the user
@@ -722,6 +722,7 @@ class MasterFile < ActiveFedora::Base
     end
     self.file_location = realpath
     self.file_size = file.size.to_s
+    Rails.logger.debug "zzzzs9 #{self.inspect}"
   ensure
     file.close
   end
