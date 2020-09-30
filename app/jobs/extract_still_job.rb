@@ -17,8 +17,8 @@ class ExtractStillJob < ActiveJob::Base
   def perform(id, options)
     return unless id
     mf = MasterFile.find(id)
-    Rails.logger.debug "zzzz3 #{mf.inspect}"
-    Rails.logger.debug "zzzz4 #{options}"
+    Rails.logger.info "zzzz3 #{mf.inspect}"
+    Rails.logger.info "zzzz4 #{options}"
     mf.extract_still(options)
     mf.save
   end
