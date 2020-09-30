@@ -183,7 +183,7 @@ class MasterFile < ActiveFedora::Base
   end
 
   def setContent(file)
-    Rails.logger.debug "zzzzs #{file.inspect}"
+    Rails.logger.debug "zzzzs1 #{file.inspect}"
     case file
     when Hash #Multiple files for pre-transcoded derivatives
       saveDerivativesHash(file)
@@ -553,13 +553,13 @@ class MasterFile < ActiveFedora::Base
   end
 
   def create_working_file!(full_path)
-    Rails.logger.debug "zzzzs5 #{self.inspect}"
+    Rails.logger.debug "zzzzs6a working file #{self.inspect}"
     working_path = MasterFile.calculate_working_file_path(full_path)
-    Rails.logger.debug "zzzzs6 #{working_path}"
+    Rails.logger.debug "zzzzs6b #{working_path}"
     return unless working_path.present?
 
     self.working_file_path = [working_path]
-    Rails.logger.debug "zzzzs6 #{self.inspect}"
+    Rails.logger.debug "zzzzs6c #{self.inspect}"
     FileUtils.mkdir(File.dirname(working_path))
     FileUtils.cp(full_path, working_path)
     working_path
@@ -707,8 +707,9 @@ class MasterFile < ActiveFedora::Base
   def saveOriginal(file, original_name=nil)
     realpath = File.realpath(file.path)
     
-    Rails.logger.debug "zzzzs3 #{self.inspect}"
-    Rails.logger.debug "zzzzs9a #{file.inspect}"
+    Rails.logger.debug "zzzz9 #{self.inspect}"
+    Rails.logger.debug "zzzz9a #{file.inspect}"
+    Rails.logger.debug "zzzz9c #{realpath}"
 
     if original_name.present?
       # If we have a temp name from an upload, rename to the original name supplied by the user
@@ -720,9 +721,10 @@ class MasterFile < ActiveFedora::Base
 
       create_working_file!(realpath)
     end
+    Rails.logger.debug "zzzz9d #{realpath}"
     self.file_location = realpath
     self.file_size = file.size.to_s
-    Rails.logger.debug "zzzzs9 #{self.inspect}"
+    Rails.logger.debug "zzzz9b #{self.inspect}"
   ensure
     file.close
   end
@@ -825,8 +827,8 @@ class MasterFile < ActiveFedora::Base
   end
 
   def manage_master_file
-    Rails.logger.debug "zzzz8 #{self.inspect}"
-    Rails.logger.debug "zzzz9 Settings.master_file_management.strategy"
+    Rails.logger.debug "zzzz8a #{self.inspect}"
+    Rails.logger.debug "zzzz8b Settings.master_file_management.strategy"
     case Settings.master_file_management.strategy
     when 'delete'
       MasterFileManagementJobs::Delete.perform_now self.id
@@ -837,7 +839,7 @@ class MasterFile < ActiveFedora::Base
       collection_directory_name = self.media_object.collection.dropbox_directory_name
       raise '"path" configuration missing for master_file_management strategy "move_ui_upload_only"' if collection_directory_name.blank?
       if self.file_location.exclude? collection_directory_name 
-        Rails.logger.debug "zzzz8a #{self.inspect}"
+        Rails.logger.debug "zzzz8c #{self.inspect}"
         move_path = Settings.master_file_management.path
         raise '"path" configuration missing for master_file_management strategy "move"' if move_path.blank?
         newpath = File.join(move_path, collection_directory_name, MasterFile.post_processing_move_filename(file_location, id: id))
