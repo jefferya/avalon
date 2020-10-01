@@ -405,7 +405,8 @@ class MasterFile < ActiveFedora::Base
 
   def update_stills_from_offset!
     # Update stills together
-    ExtractStillJob.perform_later(self.id, :type => 'both', :offset => self.poster_offset)
+    #ExtractStillJob.perform_later(self.id, :type => 'both', :offset => self.poster_offset)
+    ExtractStillJob.perform_now(self.id, :type => 'both', :offset => self.poster_offset)
 
     # Update stills independently
     # @stills_to_update.each do |type|
@@ -828,7 +829,7 @@ class MasterFile < ActiveFedora::Base
 
   def manage_master_file
     Rails.logger.info "zzzz8a #{self.inspect}"
-    Rails.logger.info "zzzz8b Settings.master_file_management.strategy"
+    Rails.logger.info "zzzz8b #{Settings.master_file_management.strategy}"
     case Settings.master_file_management.strategy
     when 'delete'
       MasterFileManagementJobs::Delete.perform_now self.id
