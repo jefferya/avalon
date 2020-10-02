@@ -405,8 +405,7 @@ class MasterFile < ActiveFedora::Base
 
   def update_stills_from_offset!
     # Update stills together
-    #ExtractStillJob.perform_later(self.id, :type => 'both', :offset => self.poster_offset)
-    ExtractStillJob.perform_now(self.id, :type => 'both', :offset => self.poster_offset)
+    ExtractStillJob.perform_later(self.id, :type => 'both', :offset => self.poster_offset)
 
     # Update stills independently
     # @stills_to_update.each do |type|
