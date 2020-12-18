@@ -33,10 +33,10 @@ jobs:
 
     - name: Install dependencies - Ruby
       run: |
-        bundle config --local with 'aws:development:test:mysql' 
-        bundle config --local without 'debug:production:staging:uat'
+        bundle config with 'aws development test mysql' 
+        bundle config without 'debug production staging uat'
         bundle install --jobs 4 --retry 3
-    
+
     - name: Install dependencies - Yarn 
       run: yarn install 
 
