@@ -36,7 +36,7 @@ jobs:
     
     - name: Install dependencies - Yarn 
       run: yarn install 
-k
+
     - name: Run tests
       env:
         RAILS_ENV: test
