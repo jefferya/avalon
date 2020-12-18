@@ -33,9 +33,9 @@ jobs:
 
     - name: Install dependencies - Ruby
       run: |
-        bundle config with aws:development:test:mysql
-        bundle config without debug:production:staging:uat
-        bundle install --jobs 4 --retry 3
+        bundle config with aws development test mysql
+        bundle config without debug production staging uat
+        bundle install --jobs 4 --retry 3 --with mysql aws --without debug development production staging uat
 
     - name: Install dependencies - Yarn 
       run: yarn install 
