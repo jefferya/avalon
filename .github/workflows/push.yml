@@ -32,7 +32,7 @@ jobs:
         ruby-version: 2.6
 
     - name: Install dependencies - Ruby
-      run: bundle install --with aws:test:mysql --without development:production:staging:uat 
+      run: bundle config set --local with 'aws:development:test:mysql' --local without 'production:staging:uat'
     
     - name: Install dependencies - Yarn 
       run: yarn install 
