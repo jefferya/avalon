@@ -51,13 +51,15 @@ jobs:
         FCREPO_URL: http://127.0.0.1:8986/rest
         SOLR_TEST_URL: http://127.0.0.1:8985/solr/hydra-test
         DATABASE_URL: mysql2://root:mysecretpassword@127.0.0.1:3306/
-        MATTERHORN_CLIENT_MEDIA_PATH: masterfiles
-        MATTERHORN_SERVER_MEDIA_PATH: masterfiles
-        MASTER_FILE_PATH: masterfiles
+        MATTERHORN_CLIENT_MEDIA_PATH: tmp/masterfiles
+        MATTERHORN_SERVER_MEDIA_PATH: tmp/masterfiles
+        MASTER_FILE_PATH: tmp/masterfiles
       run: |
         pwd
         ls -latr masterfiles
+        mkdir -p tmp/masterfiles
+        ls -latr tmp/masterfiles
         bundle config 
         bundle exec rake db:create 
         bundle exec rake db:migrate
-        bundle exec rake
+        bundle exec rake rspec ./spec/controllers/master_files_controller_spec.rb:85 
