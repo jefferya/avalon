@@ -31,13 +31,32 @@ jobs:
       with:
         ruby-version: 2.6
 
+    # Cache manually
+    - name: Cache Ruby Gems
+      uses: actions/cache@v2
+      with:
+        path: vendor/bundle
+        key: bundle-use-ruby-${{ matrix.os }}-${{ matrix.ruby }}-${{ hashFiles('**/Gemfile.lock') }}
+        restore-keys: |
+          bundle-use-ruby-${{ matrix.os }}-${{ matrix.ruby }}-
+
         # bundle config with aws development test mysql
         # bundle config without debug production staging uat
     - name: Install dependencies - Ruby
       run: |
         bundle config with mysql
-        bundle config 
-        bundle install --jobs 4 --retry 3
+        bundle install --with mysql --jobs 4 --retry 3
+
+    - name: Cache Yarn packages 
+      id: yarn-cache
+      run: echo "::set-output name=dir::$(yarn cache dir)"
+
+      uses: actions/cache@v2
+      with:
+        path: ${{ steps.yarn-cache.outputs.dir }}
+        key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-yarn-
 
     - name: Install dependencies - Yarn 
       run: yarn install 
