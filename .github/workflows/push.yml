@@ -54,9 +54,10 @@ jobs:
         MATTERHORN_CLIENT_MEDIA_PATH: masterfiles
         MATTERHORN_SERVER_MEDIA_PATH: masterfiles
         MASTER_FILE_PATH: masterfiles
+      working-directory: masterfiles 
       run: |
         pwd
-        ls
+        ls -latr masterfiles
         bundle config 
         bundle exec rake db:create 
         bundle exec rake db:migrate
