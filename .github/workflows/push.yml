@@ -75,6 +75,6 @@ jobs:
       env:
         RAILS_ENV: test
       run: |
-        bundle exec rake db:create 
-        bundle exec rake db:migrate
-        bundle exec rake
+        bundle exec --with mysql rake db:create 
+        bundle exec --with mysql rake db:migrate
+        bundle exec --with mysql rake
