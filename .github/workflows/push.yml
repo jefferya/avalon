@@ -39,9 +39,6 @@ jobs:
         bundle config with mysql test
         bundle config without debug development production uat
         bundle install --with mysql --jobs 4 --retry 3
-      # bundle config with aws development test mysql
-      # bundle config without debug production staging uat
-      #  bundle install --with mysql --jobs 4 --retry 3
 
     - name: Install dependencies - Yarn 
       run: yarn install 
@@ -51,7 +48,7 @@ jobs:
         RAILS_ENV: test
         FCREPO_URL: http://127.0.0.1:8986/rest
         SOLR_TEST_URL: http://127.0.0.1:8985/solr/hydra-test
-        DATABASE_URL: mysql2://root:@127.0.0.1:3306/
+        DATABASE_URL: mysql2://root:mysecretpassword@127.0.0.1:3306/
 
       run: |
         bundle config 
