@@ -20,6 +20,13 @@ jobs:
     #env:
     #  COMPOSE_FILE: docker-compose.lightweight.yml
 
+    services:
+        mydb:
+            image: mariadb:10.3
+            env:
+              MYSQL_ALLOW_EMPTY_PASSWORD: yes
+            options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
+
     steps:
     - uses: actions/checkout@v2
       with:
@@ -50,7 +57,7 @@ jobs:
         RAILS_ENV: test
         FCREPO_URL: http://127.0.0.1:8986/rest
         SOLR_TEST_URL: http://127.0.0.1:8985/solr/hydra-test
-        DATABASE_URL: mysql2://root:mysecretpassword@127.0.0.1:3306/
+        DATABASE_URL: mysql2://root:@127.0.0.1:3306/
         MATTERHORN_CLIENT_MEDIA_PATH: tmp/masterfiles
         MATTERHORN_SERVER_MEDIA_PATH: tmp/masterfiles
         MASTER_FILE_PATH: tmp/masterfiles
