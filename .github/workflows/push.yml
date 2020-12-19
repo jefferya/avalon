@@ -22,11 +22,23 @@ jobs:
     #  COMPOSE_FILE: docker-compose.lightweight.yml
 
     services:
-        mydb:
-            image: mariadb:10.3
-            env:
-              MYSQL_ALLOW_EMPTY_PASSWORD: yes
-            options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
+      mydb:
+        image: mariadb:10.3
+        env:
+          MYSQL_ALLOW_EMPTY_PASSWORD: yes
+        options: >-
+          --health-cmd="mysqladmin ping" 
+          --health-interval=10s 
+          --health-timeout=5s
+          --health-retries=3
+      redis:
+        image: redis
+        options: >-
+          --health-cmd "redis-cli ping"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+
 
     steps:
     - uses: actions/checkout@v2
@@ -56,9 +68,10 @@ jobs:
     - name: Run tests
       env:
         RAILS_ENV: test
+        DATABASE_URL: mysql2://root:@mydb:3306/
         FCREPO_URL: http://127.0.0.1:8986/rest
+        REDIS_URL: redis://redis:6379
         SOLR_TEST_URL: http://127.0.0.1:8985/solr/hydra-test
-        DATABASE_URL: mysql2://root:@localhost:3306/
         MATTERHORN_CLIENT_MEDIA_PATH: tmp/masterfiles
         MATTERHORN_SERVER_MEDIA_PATH: tmp/masterfiles
         MASTER_FILE_PATH: tmp/masterfiles
@@ -67,4 +80,4 @@ jobs:
         bundle config 
         bundle exec rake db:create 
         bundle exec rake db:migrate
-        bundle exec rake
+      # bundle exec rake
