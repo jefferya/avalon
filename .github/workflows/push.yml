@@ -17,16 +17,16 @@ jobs:
       matrix:
         ruby: [ '2.5' ] 
 
-    env:
-      COMPOSE_FILE: docker-compose.lightweight.yml
+    #env:
+    #  COMPOSE_FILE: docker-compose.lightweight.yml
 
     steps:
     - uses: actions/checkout@v2
       with:
         fetch-depth: 1
 
-    - name: Initiate the Avalon service containers 
-      run: docker-compose up -d
+    #- name: Initiate the Avalon service containers 
+    #  run: docker-compose up -d
 
     - name: Set up Ruby
     # To automatically get bug fixes and new Ruby versions for ruby/setup-ruby,
@@ -55,8 +55,8 @@ jobs:
         MATTERHORN_SERVER_MEDIA_PATH: tmp/masterfiles
         MASTER_FILE_PATH: tmp/masterfiles
       run: |
-        pwd
         mkdir -p tmp/masterfiles
+        ls -latr
         bundle config 
         bundle exec rake db:create 
         bundle exec rake db:migrate
