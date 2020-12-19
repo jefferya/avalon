@@ -54,7 +54,6 @@ jobs:
         MATTERHORN_CLIENT_MEDIA_PATH: masterfiles
         MATTERHORN_SERVER_MEDIA_PATH: masterfiles
         MASTER_FILE_PATH: masterfiles
-      working-directory: masterfiles 
       run: |
         pwd
         ls -latr masterfiles
