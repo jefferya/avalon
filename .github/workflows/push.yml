@@ -41,12 +41,12 @@ jobs:
           --health-timeout 5s
           --health-retries 5
 
-
     steps:
     - uses: actions/checkout@v2
       with:
         fetch-depth: 1
 
+    # use service instead of docker-compose as the `bundle exec rake` command installs Solr & Fedora
     #- name: Initiate the Avalon service containers 
     #  run: docker-compose up -d
 
@@ -82,4 +82,4 @@ jobs:
         bundle config 
         bundle exec rake db:create 
         bundle exec rake db:migrate
-      # bundle exec rake
+        bundle exec rake
