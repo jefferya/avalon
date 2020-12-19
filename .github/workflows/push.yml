@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        ruby: [ '2.5', '2.6' ] 
+        ruby: [ '2.5' ] 
 
     env:
       COMPOSE_FILE: docker-compose.lightweight.yml
@@ -34,41 +34,14 @@ jobs:
       with:
         ruby-version: ${{ matrix.ruby }} 
 
-
-    - name: install dependencies - apt
-      run: |
-        sudo apt-get install mediainfo
-
-    # Cache manually
-    - name: Cache Ruby Gems
-      uses: actions/cache@v2
-      with:
-        path: vendor/bundle
-        key: bundle-use-ruby-${{ matrix.os }}-${{ matrix.ruby }}-${{ hashFiles('**/Gemfile.lock') }}
-        restore-keys: |
-          bundle-use-ruby-${{ matrix.os }}-${{ matrix.ruby }}-
-
     - name: Install dependencies - Ruby
       run: |
-        bundle config path vendor/bundle
         bundle config with mysql aws 
         bundle config without debug development production test uat
         bundle install --with mysql --jobs 4 --retry 3
       # bundle config with aws development test mysql
       # bundle config without debug production staging uat
       #  bundle install --with mysql --jobs 4 --retry 3
-
-    - name: Get yarn cache directory path
-      id: yarn-cache-dir-path
-      run: echo "::set-output name=dir::$(yarn config get cacheFolder)"
-
-    - uses: actions/cache@v2
-      id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
-      with:
-        path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-        key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-        restore-keys: |
-          ${{ runner.os }}-yarn-
 
     - name: Install dependencies - Yarn 
       run: yarn install 
@@ -77,8 +50,6 @@ jobs:
       env:
         RAILS_ENV: test
       run: |
-        bundle config with mysql aws 
-        bundle config without debug development production test uat
         bundle config 
         bundle exec rake db:create 
         bundle exec rake db:migrate
