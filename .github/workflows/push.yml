@@ -51,7 +51,8 @@ jobs:
     - name: Install dependencies - Ruby
       run: |
         bundle config path vendor/bundle
-        bundle config with mysql 
+        bundle config with mysql aws 
+        bundle config without debug development production test uat
         bundle install --with mysql --jobs 4 --retry 3
       # bundle config with aws development test mysql
       # bundle config without debug production staging uat
@@ -76,7 +77,9 @@ jobs:
       env:
         RAILS_ENV: test
       run: |
-        bundle config with mysql 
+        bundle config with mysql aws 
+        bundle config without debug development production test uat
+        bundle config 
         bundle exec rake db:create 
         bundle exec rake db:migrate
         bundle exec rake
