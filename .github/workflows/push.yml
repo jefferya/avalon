@@ -36,7 +36,7 @@ jobs:
 
     - name: Install dependencies - Ruby
       run: |
-        bundle config with mysql test
+        bundle config with mysql aws test
         bundle config without debug development production uat
         bundle install --with mysql --jobs 4 --retry 3
 
