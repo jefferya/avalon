@@ -13,6 +13,9 @@ jobs:
   test:
     name: Run test suite
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        ruby: [ '2.5', '2.6' ] 
 
     env:
       COMPOSE_FILE: docker-compose.lightweight.yml
@@ -29,7 +32,7 @@ jobs:
     # uses: ruby/setup-ruby@v1
       uses: ruby/setup-ruby@v1
       with:
-        ruby-version: 2.6
+        ruby-version: ${{ matrix.ruby }} 
 
 
     - name: install dependencies - apt
