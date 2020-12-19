@@ -50,9 +50,7 @@ jobs:
 
     - name: Install dependencies - Ruby
       run: |
-        bundle config with mysql postgresql
-        bundle config
-        bundle install --with mysql --jobs 4 --retry 3
+        bundle install --with mysql postgresql --jobs 4 --retry 3
       # bundle config with aws development test mysql
       # bundle config without debug production staging uat
       #  bundle install --with mysql --jobs 4 --retry 3
