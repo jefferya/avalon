@@ -17,6 +17,7 @@ jobs:
       matrix:
         ruby: [ '2.5' ] 
 
+    # use service instead of docker-compose as the `bundle exec rake` command installs Solr & Fedora
     #env:
     #  COMPOSE_FILE: docker-compose.lightweight.yml
 
@@ -57,13 +58,12 @@ jobs:
         RAILS_ENV: test
         FCREPO_URL: http://127.0.0.1:8986/rest
         SOLR_TEST_URL: http://127.0.0.1:8985/solr/hydra-test
-        DATABASE_URL: mysql2://root:@127.0.0.1:3306/
+        DATABASE_URL: mysql2://root:@localhost:3306/
         MATTERHORN_CLIENT_MEDIA_PATH: tmp/masterfiles
         MATTERHORN_SERVER_MEDIA_PATH: tmp/masterfiles
         MASTER_FILE_PATH: tmp/masterfiles
       run: |
         mkdir -p tmp/masterfiles
-        ls -latr
         bundle config 
         bundle exec rake db:create 
         bundle exec rake db:migrate
