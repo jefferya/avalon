@@ -56,10 +56,11 @@ jobs:
         MASTER_FILE_PATH: tmp/masterfiles
       run: |
         pwd
+        ls -latr 
         ls -latr masterfiles
         mkdir -p tmp/masterfiles
         ls -latr tmp/masterfiles
         bundle config 
         bundle exec rake db:create 
         bundle exec rake db:migrate
-        bundle exec rake rspec ./spec/controllers/master_files_controller_spec.rb:85 
+        bundle exec rspec ./spec/controllers/master_files_controller_spec.rb:85 
