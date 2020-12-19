@@ -48,8 +48,8 @@ jobs:
     - name: Run tests
       env:
         RAILS_ENV: test
-        FCREPO_URL: http://127.0.0.1:8984/rest
-        SOLR_TEST_URL: http://127.0.0.1:8983/solr/hydra-test
+        FCREPO_URL: http://127.0.0.1:8986/rest
+        SOLR_TEST_URL: http://127.0.0.1:8985/solr/hydra-test
         DATABASE_URL: mysql2://root:mysecretpassword@127.0.0.1:3306/
         MATTERHORN_CLIENT_MEDIA_PATH: tmp/masterfiles
         MATTERHORN_SERVER_MEDIA_PATH: tmp/masterfiles
