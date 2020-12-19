@@ -60,4 +60,4 @@ jobs:
         bundle config 
         bundle exec rake db:create 
         bundle exec rake db:migrate
-        bundle exec rspec ./spec/controllers/master_files_controller_spec.rb:85 
+        bundle exec rake
