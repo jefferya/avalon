@@ -31,6 +31,11 @@ jobs:
       with:
         ruby-version: 2.6
 
+
+    - name: install dependencies - apt
+      run: |
+        sudo apt-get install mediainfo
+
     # Cache manually
     - name: Cache Ruby Gems
       uses: actions/cache@v2
@@ -46,7 +51,6 @@ jobs:
       run: |
         bundle config with mysql
         bundle config
-        bundle install --with mysql --jobs 4 --retry 3
 
     - name: Cache node modules
       uses: actions/cache@v2
@@ -68,6 +72,7 @@ jobs:
       env:
         RAILS_ENV: test
       run: |
+        bundle install --with mysql --jobs 4 --retry 3
         bundle exec rake db:create 
         bundle exec rake db:migrate
         bundle exec rake
