@@ -36,7 +36,7 @@ jobs:
 
     - name: Install dependencies - Ruby
       run: |
-        bundle config with mysql aws test
+        bundle config with mysql test
         bundle config without debug development production uat
         bundle install --with mysql --jobs 4 --retry 3
       # bundle config with aws development test mysql
@@ -49,6 +49,10 @@ jobs:
     - name: Run tests
       env:
         RAILS_ENV: test
+        FCREPO_URL: http://127.0.0.1:8986/rest
+        SOLR_TEST_URL: http://127.0.0.1:8985/solr/hydra-test
+        DATABASE_URL: mysql2://root:@127.0.0.1:3306/
+
       run: |
         bundle config 
         bundle exec rake db:create 
