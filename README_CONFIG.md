@@ -218,7 +218,7 @@ LTI_AUTH_KEY key
 LTI_AUTH_SECRET xxxxxxxxxx
 ```
 
-## Possibilities for setting environment variables
+## Possibilities for setting environment variables?
 
 Avalon environment variables: adding a few links here for reference. Can set the env vars at the apache or passenger level (and then the rails app inherits this) or you can set it just at the app level
 
